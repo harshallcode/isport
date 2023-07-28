@@ -1,0 +1,103 @@
+<div class="dashboard-wrapper">
+    <!-- <div class="w-50 h-50 p-3 border border-3 rounded"> -->
+    <div class="dates-wrapper">
+        <mat-tab-group (selectedTabChange)="filterMatchesByDate($event.index)">
+            <mat-tab *ngFor="let date of dates; let i=index" label="{{date}}">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">View Match</th>
+                            <th scope="col">Country</th>
+                            <!-- <th scope="col">League Id</th> -->
+                            <th scope="col">League Name</th>
+                            <!-- <th scope="col">Match Id</th> -->
+                            <th scope="col">Match Name</th>
+                            <th scope="col">Kick Off</th>
+                            <th scope="col">Match Time</th>
+                            <th scope="col">Match Date</th>
+                            <!-- <th scope="col">Team 1 Id</th> -->
+                            <th scope="col">Team 1 Name</th>
+                            <!-- <th scope="col">Team 2 Id</th> -->
+                            <th scope="col">Team 2 Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let match of filteredMatchList">
+                            <td><a class="view-match-btn text-primary pe-auto" (click)="viewDetails(match)">Go To Match</a></td>
+                            <td>{{match.Country}}</td>
+                            <!-- <td>{{match.LeagueId}}</td> -->
+                            <td>{{match.LeagueName}}</td>
+                            <!-- <td>{{match.MatchId}}</td> -->
+                            <td>{{match.MatchName}}</td>
+                            <td>{{match.KickOffUtc}}</td>
+                            <td>{{match.MatchTime}}</td>
+                            <td>{{match.MatchDate }}</td>
+                            <!-- <td>{{match.Team1Id}}</td> -->
+                            <td>{{match.Team1Name}}</td>
+                            <!-- <td>{{match.Team2Id}}</td> -->
+                            <td>{{match.Team2Name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <table mat-table [dataSource]="filteredMatchList" class="mat-elevation-z8">
+
+                    <ng-container matColumnDef="Country">
+                        <th mat-header-cell *matHeaderCellDef> Country </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Country}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="LeagueId">
+                        <th mat-header-cell *matHeaderCellDef> LeagueId </th>
+                        <td mat-cell *matCellDef="let element"> {{element.LeagueId}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="LeagueName">
+                        <th mat-header-cell *matHeaderCellDef> LeagueName </th>
+                        <td mat-cell *matCellDef="let element"> {{element.LeagueName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="MatchId">
+                        <th mat-header-cell *matHeaderCellDef> MatchId </th>
+                        <td mat-cell *matCellDef="let element"> {{element.MatchId}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="MatchName">
+                        <th mat-header-cell *matHeaderCellDef> Match Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.MatchName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="KickOffUtc">
+                        <th mat-header-cell *matHeaderCellDef> Kick Off UTC </th>
+                        <td mat-cell *matCellDef="let element"> {{element.KickOffUtc}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="MatchTime">
+                        <th mat-header-cell *matHeaderCellDef> Match Time </th>
+                        <td mat-cell *matCellDef="let element"> {{element.MatchTime}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="MatchDate">
+                        <th mat-header-cell *matHeaderCellDef> Match Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.MatchDate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Team1Id">
+                        <th mat-header-cell *matHeaderCellDef> Team 1 Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Team1Id}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Team1Name">
+                        <th mat-header-cell *matHeaderCellDef> Team 1 Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Team1Name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Team2Id">
+                        <th mat-header-cell *matHeaderCellDef> Team 2 Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Team2Id}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Team2Name">
+                        <th mat-header-cell *matHeaderCellDef> Team 2 Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Team2Name}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="headerList"></tr>
+                    <tr mat-row *matRowDef="let row; columns: headerList;"></tr>
+                </table> -->
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

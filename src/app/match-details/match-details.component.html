@@ -1,0 +1,51 @@
+<div class="detail-wrapper m-5 p-5">
+  <div class="header-wrapper border border-3 p-5">
+    <div class="header-info">
+      <h1 class="text-center">Match Details</h1>
+      <h2 class="text-center">{{matchDetails.MatchName}}</h2>
+      <h3 class="text-center">{{matchDetails.KickOffUtc}}</h3>
+    </div>
+  </div>
+  <div class="p-5 mt-4 d-flex flex-column justify-content-center align-items-center">
+    <form [formGroup]="matchForm">
+      <div>
+        <mat-form-field class="m-3">
+          <mat-label>Betslip</mat-label>
+          <mat-select formControlName="marketId">
+            <mat-option *ngFor="let item of marketDetails" value="{{item.MarketId}}">{{item.MarketName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="m-3">
+          <mat-label>Legs</mat-label>
+          <mat-select formControlName="selectionId">
+            <mat-option *ngFor="let item of legsDetails"
+              value="{{item.selectionId}}">{{item.selectionValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+    <button mat-raised-button color="primary" class="p-3" (click)="getResult()">Get result</button>
+  </div>
+
+  <table class="table" *ngIf="matchResult">
+    <thead class="bg-primary">
+      <tr>
+        <th scope="col">Pick</th>
+        <th scope="col">Market</th>
+        <th scope="col">Sub Market</th>
+        <th scope="col">Outcome</th>
+        <th scope="col">Key stat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let match of matchResult.BetBuilderSelections">
+        <th scope="row">{{match.Id}}</th>
+        <td>{{match.Market}}</td>
+        <td>{{match.Market}}</td>
+        <td>{{match.Selection}}</td>
+        <td>{{match.RTB}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 class="color-primary" *ngIf="matchResult">Bet Builder Odds:- {{matchResult.TotalOdds}}</h3>
+</div>
